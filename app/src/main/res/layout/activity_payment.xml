@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/payment"
+    tools:context=".Payment">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/txtPaymentTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="THANH TOÁN"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Current Money Row -->
+    <TextView
+        android:id="@+id/txtSoTienHienCoLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="40dp"
+        android:text="Số tiền hiện có:"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtSoTienHienCo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtPaymentTitle" />
+
+    <!-- Transaction Amount Row -->
+    <TextView
+        android:id="@+id/txtSoTienHienCo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:text="0 VNĐ"
+        android:textColor="#4CAF50"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtSoTienHienCoLabel"
+        app:layout_constraintTop_toBottomOf="@id/txtPaymentTitle" />
+
+    <TextView
+        android:id="@+id/txtSoTienGiaoDichLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="40dp"
+        android:text="Số tiền muốn giao dịch:"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/edtSoTien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSoTienHienCo" />
+
+    <!-- Cancel Button in the center -->
+    <EditText
+        android:id="@+id/edtSoTien"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#CCCCCC"
+        android:hint="Nhập số tiền (VNĐ)"
+        android:background="@android:drawable/edit_text"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtSoTienGiaoDichLabel"
+        app:layout_constraintTop_toBottomOf="@id/txtSoTienHienCo" />
+
+    <!-- Withdraw Button on the left -->
+    <Button
+        android:id="@+id/btnHuyThanhToan"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#F44336"
+        android:text="HỦY"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtSoTien" />
+
+    <!-- Deposit Button on the right -->
+    <Button
+        android:id="@+id/btnRut"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FF9800"
+        android:text="RÚT TIỀN"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnHuyThanhToan"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtSoTien" />
+
+    <Button
+        android:id="@+id/btnThanhToan"
+        android:layout_width="220dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#4CAF50"
+        android:text="NẠP TIỀN"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@id/btnHuyThanhToan"
+        app:layout_constraintTop_toBottomOf="@id/edtSoTien" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
