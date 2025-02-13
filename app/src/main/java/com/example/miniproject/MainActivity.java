@@ -2,6 +2,7 @@ package com.example.miniproject;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox1, checkBox2, checkBox3;
     TextView txtTien;
     EditText editText1, editText2, editText3;
-
+    VideoView vdv;
     int tien, cuoc1, cuoc2, cuoc3;
 
     private ListView lvKetQua;
@@ -40,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+
+        vdv  = findViewById(R.id.videoBackground);
+        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.backgroundong);
+        vdv.setVideoURI(videoUri);
+        vdv.setOnPreparedListener(mp -> {
+            mp.setLooping(true);
+            mp.setVolume(0f, 0f); // Tắt tiếng video
+        });
+        vdv.start();
 
         //Chạy nhạc
         mediaPlayer = MediaPlayer.create(this, R.raw.background_main);
@@ -139,6 +151,10 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setVisibility(View.INVISIBLE);
 
         createCountDownTimer().start();
+        onPause();
+        mediaPlayer = MediaPlayer.create(this, R.raw.backgrounduathu);
+        mediaPlayer.start();
+        mediaPlayer.setLooping(true);
     }
 
     private boolean anyCheckBoxChecked() {
